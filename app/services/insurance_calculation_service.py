@@ -10,16 +10,16 @@ class RateCalculationService:
     def __init__(self):
         self.config = Settings()
 
+    def _calculate_age(self, year: int) -> int:
+        current_year = datetime.datetime.now().year
+        return current_year - year
+
     def calculate_base_rate(self, car: Car) -> float:
         age = self._calculate_age(car.year)
         age_rate = age * self.config.AGE_RATE_INCREMENT
         value_rate = (car.value / 10000) * self.config.VALUE_RATE_INCREMENT
 
         return age_rate + value_rate
-
-    def _calculate_age(self, year: int) -> int:
-        current_year = datetime.datetime.now().year
-        return current_year - year
 
 
 class PremiumCalculationService:
@@ -44,9 +44,9 @@ class PremiumCalculationService:
         policy_limit = base_policy_limit - deductible_value
 
         return InsuranceQuoteOutput(
-            car=car,
             applied_rate=applied_rate,
-            policy_limit=policy_limit,
+            car=car,
             calculated_premium=calculated_premium,
             deductible_value=deductible_value,
+            policy_limit=policy_limit
         )

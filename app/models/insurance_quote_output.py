@@ -3,8 +3,8 @@ from app.models.car import Car
 
 
 class InsuranceQuoteOutput(BaseModel):
-    car: Car
     applied_rate: float
-    policy_limit: float
     calculated_premium: float
+    car: Car
     deductible_value: float
+    policy_limit: float
