@@ -1,8 +1,8 @@
 from pydantic import BaseModel
+from app.models.car import Car
 
 
-class InsurancePremium(BaseModel):
-    base_premium: float
+class InsuranceQuoteInput(BaseModel):
+    car: Car
     deductible_percentage: float
     broker_fee: float
-    final_premium: float
