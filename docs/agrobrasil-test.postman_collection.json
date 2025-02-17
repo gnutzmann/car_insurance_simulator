@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "0b445e26-a571-415a-a543-d7e68d4eab5e",
+		"name": "agrobrasil-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4694285"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"car\": {\n        \"make\": \"Toyota\",\n        \"model\": \"Corolla\",\n        \"year\": 2015,\n        \"value\": 100000\n    },\n    \"deductible_percentage\": 0.10,\n    \"broker_fee\": 50.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{device_ip}}/insurance/quote",
+					"protocol": "http",
+					"host": [
+						"{{device_ip}}"
+					],
+					"path": [
+						"insurance",
+						"quote"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "device_ip",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

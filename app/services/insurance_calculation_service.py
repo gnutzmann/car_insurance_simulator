@@ -44,9 +44,9 @@ class PremiumCalculationService:
         policy_limit = base_policy_limit - deductible_value
 
         return InsuranceQuoteOutput(
-            applied_rate=applied_rate,
             car=car,
+            applied_rate=applied_rate,
+            policy_limit=policy_limit,
             calculated_premium=calculated_premium,
-            deductible_value=deductible_value,
-            policy_limit=policy_limit
+            deductible_value=deductible_value
         )
